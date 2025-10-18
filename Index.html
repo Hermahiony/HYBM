@@ -1,0 +1,1350 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HYMB</title>
+<link rel="icon" href="https://i.postimg.cc/6qhqxYD6/H.png" type="image/x-icon">
+<link rel="icon" href="https://i.postimg.cc/6qhqxYD6/H.png" sizes="32x32" type="image/png">
+<link rel="icon" href="https://i.postimg.cc/6qhqxYD6/H.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="https://i.postimg.cc/6qhqxYD6/H.png" sizes="180x180">
+<link rel="manifest" href="https://i.postimg.cc/6qhqxYD6/H.png" >
+  <meta name="description" content="HYMB - Diseño, desarrollo y soporte de páginas web personalizadas para comercios y emprendedores." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+   :root{
+  --bg: #ffffff;
+  --bg-2: #f7f7f7;
+  --card: #ffffff;
+  --border: #e6e6e6;
+  --text: #111111;
+  --muted: #000000;
+  --muted-2: #999999;
+  --accent-dark: #000000;
+  --glass: rgba(0,0,0,0.04);
+  --max-width: 1200px;
+  --transition: 320ms cubic-bezier(.2,.8,.2,1);
+  --radius: 12px;
+}
+
+
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, var(--bg-dark), var(--bg-dark-2));
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 12px;
+      z-index: 120;
+      padding: 12px;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--card-dark);
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand .logo img {
+      width: 86%;
+      height: 86%;
+      object-fit: contain;
+    }
+
+    .brand .title {
+      font-weight: 800;
+      letter-spacing: 0.6px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    nav a:hover {
+      background: var(--glass);
+      color: var(--accent-2);
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 26px;
+      align-items: center;
+      padding: 26px 0;
+    }
+
+    .hero-card {
+      background: var(--card-dark);
+      padding: 28px;
+      border-radius: 14px;
+      border: 1px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .kicker {
+      font-size: 12px;
+      color: var(--muted-dark);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin: 6px 0 10px 0;
+    }
+
+    p.lead {
+      color: var(--muted-dark);
+      margin: 0 0 18px 0;
+    }
+
+    .preview {
+      border-radius: 14px;
+      padding: 18px;
+      background: var(--card-dark);
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .mock {
+      height: 320px;
+      border-radius: 12px;
+      background: linear-gradient(160deg,#ffffff,#ffffff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mock-logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    section {
+      padding: 36px 0;
+      border-top: 1px solid #eaeaea;
+    }
+
+    section h2 {
+      font-size: 22px;
+      margin: 0 0 18px 0;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .cols-3 {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--card-dark);
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 13px;
+      color: var(--muted-dark);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ffffff;
+      background: #fff;
+      color: #333;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn.secondary {
+      background: #f5f5f5;
+      border: 1px solid #ccc;
+      color: var(--accent-2);
+    }
+
+/* Botones: asegurar contraste sobre fondo blanco */
+/* Botones: asegurar contraste sobre fondo blanco */
+.btn {
+  background: #000000;           /* negro sólido */
+  color: #ffffff;                /* texto blanco */
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+}
+
+/* Botón secundario visible en blanco/negro */
+.btn.secondary {
+  background: #ffffff;           /* fondo blanco */
+  color: #000000;                /* texto negro */
+  border: 1px solid #000000;     /* borde negro para contraste */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.btn.secondary:hover {
+  background: #f2f2f2;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* Asegurar visibilidad cuando los botones están dentro de contenedores claros */
+.nav a, .nav .btn, .nav .btn.secondary { z-index: 5; }
+
+/* Accesibilidad: foco claro */
+.btn:focus, .btn.secondary:focus {
+  outline: 3px solid rgba(0,0,0,0.12);
+  outline-offset: 2px;
+}
+/* Contornos negros y alta visibilidad para campos y select */
+form#clientForm input[type="text"],
+form#clientForm input[type="email"],
+form#clientForm textarea,
+form#clientForm select,
+form#contactForm input[type="text"],
+form#contactForm input[type="email"],
+form#contactForm textarea {
+  border: 2px solid #000000;   /* contorno negro sólido */
+  background: #ffffff;         /* fondo blanco */
+  color: #000000;              /* texto negro */
+  border-radius: 8px;
+  padding: 10px;
+  transition: box-shadow 180ms ease, border-color 180ms ease;
+}
+
+/* Selector específico para el menú "Tipo de diseño" */
+#designType {
+  border: 2px solid #000000;
+  background: #ffffff;
+  color: #000000;
+  padding: 10px;
+  border-radius: 8px;
+  appearance: none;            /* elimina flecha nativa en algunos navegadores */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, #000000 50%),
+                    linear-gradient(135deg, #000000 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+}
+
+/* Foco accesible */
+form#clientForm input[type="text"]:focus,
+form#clientForm input[type="email"]:focus,
+form#clientForm textarea:focus,
+form#clientForm select:focus,
+form#contactForm input[type="text"]:focus,
+form#contactForm input[type="email"]:focus,
+form#contactForm textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0,0,0,0.06);
+  border-color: #000000;
+}
+
+/* Ajuste para campos deshabilitados o errores (opcional) */
+input[disabled], textarea[disabled], select[disabled] {
+  opacity: 0.7;
+}
+
+/* Mantener consistencia en móviles */
+@media (max-width: 600px) {
+  form#clientForm input[type="text"],
+  form#clientForm input[type="email"],
+  form#clientForm textarea,
+  form#clientForm select {
+    padding: 12px;
+  }
+}
+    footer {
+      padding: 18px 0;
+      text-align: center;
+      color: var(--muted-dark);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1000px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .preview {
+        order: 2;
+      }
+      nav ul {
+        display: none;
+      }
+    }
+    /* Botón volver arriba: diseño visible, circular, sombra, contraste B/N */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  display: none;                /* se muestra por JS cuando corresponde */
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), opacity 220ms;
+  z-index: 999;
+  backdrop-filter: blur(6px);
+}
+
+/* Mostrar con entrada suave */
+.to-top.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estado oculto para animación */
+.to-top.hide {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+}
+
+/* Hover y foco accesible */
+.to-top:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.30);
+}
+.to-top:focus {
+  outline: 3px solid rgba(0,0,0,0.12);
+  outline-offset: 4px;
+}
+
+/* Versión compacta en pantallas pequeñas */
+@media (max-width: 480px) {
+  .to-top {
+    width: 48px;
+    height: 48px;
+    right: 14px;
+    bottom: 18px;
+    font-size: 18px;
+  }
+}
+/* Carrusel Portafolio — declaración de clase principal */
+.carousel-portfolio {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 12px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+/* Pista de slides */
+.pf-track {
+  display: flex;
+  transition: transform 560ms cubic-bezier(.2,.8,.2,1);
+  width: 100%;
+  will-change: transform;
+}
+
+/* Cada slide */
+.pf-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Imagen dentro del slide */
+.pf-slide img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) contrast(95%);
+  transition: transform 360ms, filter 360ms;
+}
+.pf-slide:hover img {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
+
+/* Botones de navegación */
+.pf-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  z-index: 1000;
+  pointer-events: auto;
+}
+.pf-prev { left: 12px; }
+.pf-next { right: 12px; }
+
+/* Indicadores (dots) */
+.pf-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0 8px 0;
+}
+.pf-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #ddd;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+.pf-dots .dot.active {
+  background: #000;
+}
+
+/* Accesibilidad */
+.pf-btn:focus,
+.dot:focus {
+  outline: 3px solid rgba(0,0,0,0.12);
+  outline-offset: 3px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .pf-slide img { height: 260px; }
+  .pf-btn { width: 42px; height: 42px; }
+}
+@media (max-width: 600px) {
+  .pf-slide img { height: 180px; }
+  .pf-btn { width: 36px; height: 36px; }
+}
+/* Rejilla de portafolio */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 16px;
+}
+
+/* Tarjeta individual */
+.pf-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid #000;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  transition: transform 280ms ease, box-shadow 280ms ease;
+  margin: 0;
+}
+
+/* Imagen dentro de tarjeta */
+.pf-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(100%) contrast(95%);
+  transition: transform 320ms ease, filter 320ms ease;
+}
+
+/* Hover: animación suave */
+.pf-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+.pf-card:hover img {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.02);
+}
+
+/* Pie de imagen */
+.pf-card figcaption {
+  padding: 12px 14px;
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .pf-card img { height: 180px; }
+  .pf-card figcaption { font-size: 13px; padding: 10px; }
+}
+
+/* Rejilla de equipo */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  padding: 24px 12px;
+}
+
+/* Tarjeta individual */
+.team-card {
+  border: 2px solid #000;
+  border-radius: 12px;
+  background: #fff;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+/* Imagen del miembro */
+.team-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  filter: grayscale(100%) contrast(95%);
+  transition: filter 320ms ease, transform 320ms ease;
+}
+
+/* Hover elegante */
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+.team-card:hover img {
+  filter: grayscale(0%) contrast(100%);
+  transform: scale(1.02);
+}
+
+/* Texto */
+.team-card h3 {
+  margin: 8px 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.team-card p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .team-card img { height: 200px; }
+  .team-card h3 { font-size: 18px; }
+  .team-card p { font-size: 14px; }
+}
+
+
+  </style>
+</head>
+<script>
+(function(){
+  const btn = document.getElementById('toTopBtn');
+  if(!btn) return;
+
+  const showAt = 240;            // px scrolled to show button
+  let visible = false;
+  function updateVisibility(){
+    const shouldShow = window.scrollY > showAt;
+    if(shouldShow && !visible){
+      visible = true;
+      btn.classList.remove('hide');
+      btn.classList.add('show');
+    } else if(!shouldShow && visible){
+      visible = false;
+      btn.classList.remove('show');
+      btn.classList.add('hide');
+      // dejar display:none tras transición
+      setTimeout(()=> {
+        if(!visible) btn.style.display = 'none';
+      }, 260);
+    }
+    if(shouldShow) btn.style.display = 'flex';
+  }
+
+  // Inicial
+  btn.classList.add('hide');
+  updateVisibility();
+
+  // Scroll listener (throttle simple)
+  let tick = false;
+  window.addEventListener('scroll', ()=>{
+    if(tick) return;
+    tick = true;
+    requestAnimationFrame(()=>{ updateVisibility(); tick = false; });
+  }, {passive:true});
+
+  // Click: smooth scroll to top
+  btn.addEventListener('click', ()=>{
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    btn.blur();
+  });
+
+  // Keyboard accessibility: Home key also focuses button optionally
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Home') btn.focus();
+  });
+})();
+(function(){
+  const carousel = document.getElementById('pfCarousel');
+  if(!carousel) return;
+
+  const track = document.getElementById('pfTrack');
+  if(!track) return;
+
+  let prev = document.getElementById('pfPrev');
+  let next = document.getElementById('pfNext');
+  let dotsWrap = document.getElementById('pfDots');
+
+  // Ensure controls exist
+  function makeBtn(id, cls, text){
+    let b = document.getElementById(id);
+    if(!b){
+      b = document.createElement('button');
+      b.id = id;
+      b.type = 'button';
+      b.className = cls;
+      b.innerHTML = text;
+      b.setAttribute('aria-label', text);
+      carousel.appendChild(b);
+    }
+    b.style.zIndex = 1000;
+    b.style.pointerEvents = 'auto';
+    return b;
+  }
+  prev = prev || makeBtn('pfPrev','pf-btn pf-prev','◀');
+  next = next || makeBtn('pfNext','pf-btn pf-next','▶');
+
+  const slides = Array.from(track.children);
+  if(slides.length === 0) return;
+
+  // Create dots
+  if(!dotsWrap){
+    dotsWrap = document.createElement('div');
+    dotsWrap.id = 'pfDots';
+    dotsWrap.className = 'pf-dots';
+    carousel.appendChild(dotsWrap);
+  }
+  dotsWrap.innerHTML = '';
+  slides.forEach((_,i)=>{
+    const d = document.createElement('button');
+    d.className = 'dot';
+    d.type = 'button';
+    d.setAttribute('aria-label','Ir al slide ' + (i+1));
+    d.addEventListener('click', ()=> goTo(i));
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  let index = 0;
+  let timer = null;
+  const AUTOPLAY = true;
+  const DELAY = 4200;
+
+  function update(){
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((d,i)=> d.classList.toggle('active', i === index));
+  }
+
+  function goTo(i){
+    index = (i + slides.length) % slides.length;
+    update();
+    restart();
+  }
+
+  prev.addEventListener('click', ()=> goTo(index - 1));
+  next.addEventListener('click', ()=> goTo(index + 1));
+  [prev,next].forEach(b => b.addEventListener('click', e=> { e.preventDefault(); e.stopPropagation(); }));
+
+  // Keyboard navigation when carousel focused
+  carousel.addEventListener('keydown', (e)=>{
+    if(e.key === 'ArrowLeft') { e.preventDefault(); goTo(index - 1); }
+    if(e.key === 'ArrowRight') { e.preventDefault(); goTo(index + 1); }
+  });
+
+  // Touch swipe
+  let startX=0, deltaX=0;
+  carousel.addEventListener('touchstart', e=> { startX = e.touches[0].clientX; clearInterval(timer); }, {passive:true});
+  carousel.addEventListener('touchmove', e=> { deltaX = e.touches[0].clientX - startX; }, {passive:true});
+  carousel.addEventListener('touchend', ()=> {
+    if(Math.abs(deltaX) > 50) deltaX > 0 ? goTo(index - 1) : goTo(index + 1);
+    deltaX = 0;
+    restart();
+  });
+
+  function step(){ index = (index + 1) % slides.length; update(); }
+  function restart(){ if(timer) clearInterval(timer); if(AUTOPLAY) timer = setInterval(step, DELAY); }
+  restart();
+
+  // Image error fallback (replace failing src with inline SVG)
+  const fallback = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect fill="%23f3f3f3" width="100%" height="100%"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="20" fill="%23000">Imagen no disponible</text></svg>';
+  slides.forEach(sl=>{
+    const img = sl.querySelector('img');
+    if(!img) return;
+    img.addEventListener('error', ()=> { img.src = fallback; img.style.objectFit = 'contain'; img.style.filter = 'none'; });
+    setTimeout(()=> { if(!img.complete) { img.src = fallback; img.style.objectFit = 'contain'; img.style.filter = 'none'; } }, 7000);
+  });
+
+  // Initial render
+  update();
+})();
+</script>
+<body>
+<!-- HEADER -->
+<header>
+  <div class="nav-wrap container">
+    <div class="nav" role="navigation" aria-label="Menú principal">
+      <div class="brand">
+        <div class="logo"><img src="https://i.postimg.cc/0jCj1cLy/5.png" alt="HYMB logo"></div>
+        <div>
+          <div class="title">HYMB</div>
+          <h5>Diseñando tu marca</h5>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#equipo">Equipo</a></li>
+          <li><a href="#personaliza">Personaliza</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-card card">
+      <div class="kicker">HYMB • Diseño & Desarrollo</div>
+      <h1>Diseño y desarrollo web para marcas y comercios</h1>
+      <p class="lead">Fusionamos diseño, rendimiento y marketing para darle a tu negocio una presencia digital profesional.</p>
+      <div style="display:flex;gap:12px;margin-top:10px">
+        <button class="btn" onclick="document.getElementById('personaliza').scrollIntoView({behavior:'smooth'})">Personaliza tu sitio</button>
+        <button class="btn secondary" onclick="document.getElementById('portafolio').scrollIntoView({behavior:'smooth'})">Ver portafolio</button>
+      </div>
+      <div style="margin-top:14px;color:var(--accent);font-size:13px">
+        Diseño centrado en el usuario · Proyectos rápidos y escalables · Soporte cercano y formación.
+      </div>
+    </div>
+    <aside class="preview card">
+      <div class="mock">
+        <div class="mock-logo">
+        <img src="https://i.postimg.cc/j2h2YZGK/4.png" alt="Vista previa HYMB">
+      </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros">
+    <h2>Nosotros</h2>
+    <div class="card">
+      <p>HYMB es una agencia especializada en crear páginas web personalizadas para comercios y emprendedores. Fusionamos diseño, rendimiento y marketing para darle a tu negocio una presencia digital profesional.</p>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:220px">
+          <strong>Misión</strong>
+          <p>Diseñar y entregar sitios web que representen auténticamente a cada cliente, con herramientas sencillas para gestionar su contenido.</p>
+        </div>
+        <div style="flex:1;min-width:220px">
+          <strong>Visión</strong>
+          <p>Ser la referencia regional en soluciones web personalizadas que permitan a pequeños negocios competir online con gran presencia visual y conversión.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="grid cols-3">
+      <div class="card"><h3>Diseño Web a medida</h3><p>Landing pages, tiendas pequeñas y sitios corporativos con identidad propia.</p></div>
+      <div class="card"><h3>Responsive & Mobile First</h3><p>Experiencia optimizada para móviles y velocidades rápidas.</p></div>
+      <div class="card"><h3>Mantenimiento y Soporte</h3><p>Actualizaciones periódicas, backups y cambios de contenido.</p></div>
+      <div class="card"><h3>SEO Básico</h3><p>Optimización técnica para mejorar la visibilidad en buscadores.</p></div>
+      <div class="card"><h3>Producción multimedia</h3><p>Edición básica de imágenes y videos para mostrar tu local.</p></div>
+      <div class="card"><h3>Formación</h3><p>Capacitación para que administres tu propio contenido.</p></div>
+    </div>
+  </section>
+
+  <!-- PORTAFOLIO -->
+<section id="portafolio" aria-label="Portafolio">
+  <h2>Portafolio</h2>
+  <div class="portfolio-grid card">
+    <figure class="pf-card">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=80" alt="Proyecto Apple" loading="lazy">
+      <figcaption><span class="pf-title">Apple — Página principal</span></figcaption>
+    </figure>
+
+    <figure class="pf-card">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1400&q=80" alt="Proyecto Nike" loading="lazy">
+      <figcaption><span class="pf-title">Nike — Tienda digital</span></figcaption>
+    </figure>
+
+    <figure class="pf-card">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80" alt="Proyecto Google" loading="lazy">
+      <figcaption><span class="pf-title">Google — Landing de servicio</span></figcaption>
+    </figure>
+  </div>
+</section>
+
+  <!-- EQUIPO -->
+  <section id="equipo" aria-label="Nuestro equipo">
+  <h2>Equipo</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src= "https://i.postimg.cc/fyvyQB6m/1-2-3-4jpeg.jpg" alt="CEO" loading="lazy">
+      <h3>HERMAHIONY GERALDINE JIMÉNEZ ARCHER</h3>
+      <p>CEO y Directora Creativa</p>
+      <p>Fundadora de HYBM, lidera la visión, estrategia y dirección emocional de cada proyecto.</p>
+    </div>
+
+    <div class="team-card">
+      <img src="https://i.postimg.cc/kXnDvPbq/YERAY.png" alt="Co-Fundador" loading="lazy">
+      <h3>ÁNGEL YERAY MARTINEZ HERNANDEZ </h3>
+      <p>Co-Fundador y Estratega Técnico</p>
+      <p>Especialista en automatización y estructura digital, asegura que cada experiencia sea perfecta y funcional.</p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- PERSONALIZA (formulario de pedido) -->
+  <section id="personaliza">
+    <h2>Personaliza tu proyecto</h2>
+    <div class="card" style="display:grid;grid-template-columns:1fr 420px;gap:18px">
+      <div>
+        <form id="clientForm">
+          <label>Nombre de negocio *</label>
+          <input id="businessName" name="businessName" type="text" required placeholder="Ej: Panadería La Masa">
+
+          <label>Nombre de contacto *</label>
+          <input id="contactName" name="contactName" type="text" required placeholder="Tu nombre">
+
+          <label>Correo *</label>
+          <input id="email" name="email" type="email" required placeholder="correo@ejemplo.com">
+
+          <label>Teléfono</label>
+          <input id="phone" name="phone" type="text" placeholder="+52 1 55 0000 0000">
+
+          <label>Slogan</label>
+          <input id="slogan" name="slogan" type="text" placeholder="Tu slogan aquí">
+
+          <label>Descripción breve *</label>
+          <textarea id="businessDesc" name="businessDesc" placeholder="Qué vendes, horario..." required></textarea>
+
+          <label>Logo (vista previa local)</label>
+          <input id="logoInput" type="file" accept="image/*">
+
+          <label>Fotos del local / productos (máx 8)</label>
+          <input id="photosInput" type="file" accept="image/*" multiple>
+
+          <label>Videos (MP4 recomendado, máx 3)</label>
+          <input id="videosInput" type="file" accept="video/*" multiple>
+
+          <label>Colores preferidos para su sitio (hasta 4)</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input id="col1" type="color" value="#ffffff" title="Color 1" style="width:56px;height:40px;border-radius:8px;border:none">
+            <input id="col2" type="color" value="#cfcfcf" title="Color 2" style="width:56px;height:40px;border-radius:8px;border:none">
+            <input id="col3" type="color" value="#000000" title="Color 3" style="width:56px;height:40px;border-radius:8px;border:none">
+            <input id="col4" type="color" value="#8f8f8f" title="Color 4" style="width:56px;height:40px;border-radius:8px;border:none">
+          </div>
+
+          <label style="margin-top:8px">Tipo de diseño</label>
+          <select id="designType">
+            <option value="moderno">Moderno & Minimal</option>
+            <option value="elegante">Elegante & Corporativo</option>
+            <option value="vibrante">Vibrante & Comercial</option>
+            <option value="artistico">Artistico & Creativo</option>
+          </select>
+
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <button type="button" class="btn" onclick="saveDraft()">Guardar borrador</button>
+            <button type="button" class="btn secondary" onclick="loadDraft()">Cargar borrador</button>
+            <button type="button" class="btn secondary" onclick="clearDraft()">Eliminar borrador</button>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <button type="button" class="btn" onclick="downloadClientTXT()">Descargar .txt</button>
+            <button type="button" class="btn secondary" onclick="openEmailInstructions()">Instrucciones para enviar</button>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted-dark);font-size:13px">
+            * Tus datos se guardan localmente. Descarga el archivo .txt y adjúntalo en un correo a: <strong>contacto@hymb.mx</strong>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <div style="font-weight:700">Previsualización </div>
+        <div style="margin-top:8px">
+          <div style="font-size:13px;color:var(--muted-dark)">Logo (vista previa)</div>
+          <div id="logoPreview" class="thumb" style="width:140px;height:140px;border-radius:12px;margin-top:8px;display:flex;align-items:center;justify-content:center">Sin logo</div>
+
+          <div style="font-size:13px;color:var(--muted-dark);margin-top:12px">Fotos</div>
+          <div id="photosPreview" class="previews"></div>
+
+          <div style="font-size:13px;color:var(--muted-dark);margin-top:12px">Videos</div>
+          <div id="videosPreview" class="previews"></div>
+        </div>
+
+        <div style="margin-top:20px">
+          <strong>Editar datos antes de enviar</strong>
+          <div style="margin-top:8px;color:var(--muted-dark);font-size:13px">
+            Carga el borrador, edita campos y vuelve a descargar el .txt. Nunca usamos tus archivos fuera de tu equipo sin tu permiso.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO (formulario de mensaje simple) -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="card" style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+      <div>
+        <form id="contactForm">
+          <label>Nombre</label>
+          <input id="c_nombre" name="c_nombre" type="text" placeholder="Tu nombre" required>
+
+          <label>Correo</label>
+          <input id="c_correo" name="c_correo" type="email" placeholder="correo@ejemplo.com" required>
+
+          <label>Mensaje</label>
+          <textarea id="c_mensaje" name="c_mensaje" placeholder="Cuéntanos tu proyecto" required></textarea>
+
+          <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+            <button type="submit" class="btn">Enviar mensaje</button>
+            <button type="button" class="btn secondary" onclick="downloadContactTXT()">Descargar .txt</button>
+          </div>
+        </form>
+      </div>
+
+      <div style="padding:12px">
+        <h3>WhatsApp</h3>
+        <p style="color:var(--muted-dark)">Contacto rápido vía WhatsApp: <br><strong>+52 1 55 0000 0000</strong></p>
+        <h3>Datos</h3>
+        <p style="color:var(--muted-dark)">📍 Ciudad de México<br>✉️ contacto@hymb.mx<br>📞 +52 1 55 0000 0000</p>
+        <h3>Síguenos</h3>
+        <p style="color:var(--muted-dark)"><a href="#" style="color:var(--accent);text-decoration:none">Instagram (HYMB)</a> • <a href="#" style="color:var(--accent);text-decoration:none">LinkedIn (HYMB)</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 HYMB. Todos los derechos reservados.
+</footer>
+
+<!-- TO TOP -->
+<button class="to-top" id="toTopBtn" title="Volver arriba" aria-label="Volver arriba">↑</button>
+<button id="toTopBtn" class="to-top" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
+<!-- SCRIPTS -->
+<script>
+/* -----------------------------
+   Variables y elementos
+   ----------------------------- */
+const STORAGE_KEY = 'hymb_client_draft_v1';
+const clientForm = document.getElementById('clientForm');
+const logoInput = document.getElementById('logoInput');
+const photosInput = document.getElementById('photosInput');
+const videosInput = document.getElementById('videosInput');
+const logoPreview = document.getElementById('logoPreview');
+const photosPreview = document.getElementById('photosPreview');
+const videosPreview = document.getElementById('videosPreview');
+const toTopBtn = document.getElementById('toTopBtn');
+const contactForm = document.getElementById('contactForm');
+const carousel = document.getElementById('carousel');
+
+/* -----------------------------
+   Smooth scroll for nav links
+   ----------------------------- */
+document.querySelectorAll('nav a').forEach(a=>{
+  a.addEventListener('click', e=>{
+    e.preventDefault();
+    const id = a.getAttribute('href').slice(1);
+    const sec = document.getElementById(id);
+    if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+/* -----------------------------
+   To top button
+   ----------------------------- */
+window.addEventListener('scroll', ()=>{
+  if (!toTopBtn) return;
+  toTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+});
+if (toTopBtn) toTopBtn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+/* -----------------------------
+   Carrusel
+   ----------------------------- */
+(function initCarousel(){
+  const track = document.getElementById('carouselTrack');
+  if(!track) return;
+  const items = Array.from(track.children);
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('carouselDots');
+  let idx = 0, timer=null, autoplay=true;
+
+  items.forEach((it,i)=>{
+    const dot = document.createElement('div');
+    dot.className='dot';
+    if(i===0) dot.classList.add('active');
+    dot.addEventListener('click', ()=> goTo(i));
+    if(dotsWrap) dotsWrap.appendChild(dot);
+  });
+
+  function update(){
+    track.style.transform = `translateX(-${idx*100}%)`;
+    document.querySelectorAll('.dot').forEach((d,i)=> d.classList.toggle('active', i===idx));
+  }
+  function goTo(i){ idx = (i + items.length) % items.length; update(); restart(); }
+  if(prev) prev.addEventListener('click', ()=> goTo(idx-1));
+  if(next) next.addEventListener('click', ()=> goTo(idx+1));
+  function step(){ idx = (idx+1) % items.length; update(); }
+  function restart(){ if(timer) clearInterval(timer); if(autoplay) timer = setInterval(step, 4200); }
+  restart();
+  if(carousel){
+    carousel.addEventListener('mouseenter', ()=> { autoplay=false; if(timer) clearInterval(timer); });
+    carousel.addEventListener('mouseleave', ()=> { autoplay=true; restart(); });
+  }
+})();
+
+/* -----------------------------
+   Previsualización de archivos del cliente
+   ----------------------------- */
+if (logoInput) {
+  logoInput.addEventListener('change', e=>{
+    const f = e.target.files[0];
+    if(!f){ logoPreview.textContent = 'Sin logo'; return; }
+    const url = URL.createObjectURL(f);
+    logoPreview.innerHTML = `<img src="${url}" alt="Logo cliente" style="width:100%;height:100%;object-fit:contain">`;
+  });
+}
+
+if (photosInput) {
+  photosInput.addEventListener('change', e=>{
+    photosPreview.innerHTML = '';
+    const files = Array.from(e.target.files).slice(0,8);
+    files.forEach(f=>{
+      const url = URL.createObjectURL(f);
+      const d = document.createElement('div'); d.className='thumb';
+      const img = document.createElement('img'); img.src = url; img.alt = 'Foto';
+      d.appendChild(img); photosPreview.appendChild(d);
+    });
+  });
+}
+
+if (videosInput) {
+  videosInput.addEventListener('change', e=>{
+    videosPreview.innerHTML = '';
+    const files = Array.from(e.target.files).slice(0,3);
+    files.forEach(f=>{
+      const url = URL.createObjectURL(f);
+      const d = document.createElement('div'); d.className='thumb';
+      const vid = document.createElement('video'); vid.src = url; vid.controls = true;
+      d.appendChild(vid); videosPreview.appendChild(d);
+    });
+  });
+}
+
+/* -----------------------------
+   Guardar / cargar / borrar borrador en localStorage
+   ----------------------------- */
+function collectClientData(){
+  return {
+    businessName: document.getElementById('businessName').value || '',
+    contactName: document.getElementById('contactName').value || '',
+    email: document.getElementById('email').value || '',
+    phone: document.getElementById('phone').value || '',
+    slogan: document.getElementById('slogan').value || '',
+    businessDesc: document.getElementById('businessDesc').value || '',
+    designType: document.getElementById('designType').value || '',
+    colors: [
+      document.getElementById('col1').value,
+      document.getElementById('col2').value,
+      document.getElementById('col3').value,
+      document.getElementById('col4').value
+    ],
+    logoFileName: logoInput && logoInput.files[0] ? logoInput.files[0].name : '',
+    photosFileNames: photosInput ? Array.from(photosInput.files || []).map(f=>f.name).slice(0,8) : [],
+    videosFileNames: videosInput ? Array.from(videosInput.files || []).map(f=>f.name).slice(0,3) : [],
+    savedAt: new Date().toISOString()
+  };
+}
+
+function saveDraft(){
+  const data = collectClientData();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  alert('Borrador guardado localmente.');
+}
+
+function loadDraft(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if(!raw){ alert('No se encontró borrador.'); return; }
+  const data = JSON.parse(raw);
+  document.getElementById('businessName').value = data.businessName || '';
+  document.getElementById('contactName').value = data.contactName || '';
+  document.getElementById('email').value = data.email || '';
+  document.getElementById('phone').value = data.phone || '';
+  document.getElementById('slogan').value = data.slogan || '';
+  document.getElementById('businessDesc').value = data.businessDesc || '';
+  document.getElementById('designType').value = data.designType || '';
+  document.getElementById('col1').value = data.colors ? data.colors[0] : '#ffffff';
+  document.getElementById('col2').value = data.colors ? data.colors[1] : '#cfcfcf';
+  document.getElementById('col3').value = data.colors ? data.colors[2] : '#000000';
+  document.getElementById('col4').value = data.colors ? data.colors[3] : '#8f8f8f';
+  alert('Borrador cargado. Revisa y edita si es necesario.');
+}
+
+function clearDraft(){
+  localStorage.removeItem(STORAGE_KEY);
+  alert('Borrador local eliminado.');
+}
+
+/* -----------------------------
+   Descargar .txt con los datos del cliente
+   ----------------------------- */
+function downloadClientTXT(){
+  const d = collectClientData();
+  let content = '';
+  content += 'HYMB - Datos del cliente\n';
+  content += '========================\n\n';
+  content += `Nombre de negocio: ${d.businessName}\n`;
+  content += `Nombre de contacto: ${d.contactName}\n`;
+  content += `Correo: ${d.email}\n`;
+  content += `Teléfono: ${d.phone}\n`;
+  content += `Slogan: ${d.slogan}\n\n`;
+  content += `Descripción:\n${d.businessDesc}\n\n`;
+  content += `Tipo de diseño: ${d.designType}\n`;
+  content += `Colores preferidos: ${d.colors.join(', ')}\n\n`;
+  content += `Archivos subidos:\n`;
+  if(d.logoFileName) content += ` - Logo: ${d.logoFileName}\n`;
+  if(d.photosFileNames.length) d.photosFileNames.forEach(n=> content += ` - Foto: ${n}\n`);
+  if(d.videosFileNames.length) d.videosFileNames.forEach(n=> content += ` - Video: ${n}\n`);
+  content += `\nGuardado: ${d.savedAt || new Date().toISOString()}\n\n`;
+  content += 'IMPORTANTE: Adjunta este archivo al correo dirigido a contacto@hymb.mx para que podamos recibir tus archivos y proceder con el proyecto.\n';
+
+  const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const safe = (d.businessName || 'datos_cliente').replace(/\s+/g,'_');
+  a.download = `${safe}_datos.txt`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/* -----------------------------
+   Instrucciones para enviar por correo
+   ----------------------------- */
+function openEmailInstructions(){
+  const lines = [
+    'Instrucciones para enviar los datos a HYMB:',
+    '',
+    '1) Descarga el archivo .txt con "Descargar .txt".',
+    '2) Crea un correo nuevo en tu proveedor (por ejemplo Gmail).',
+    '3) Dirige el correo a: contacto@hymb.mx',
+    '4) Adjunta el archivo .txt y, si lo deseas, los archivos (logo, fotos, videos).',
+    '5) Escribe en el asunto: "Nuevo envío HYMB - [Nombre de negocio]".',
+    '6) Envía el correo.'
+  ];
+  alert(lines.join('\n'));
+}
+
+/* -----------------------------
+   Contact form: descargar .txt con mensaje
+   ----------------------------- */
+if (contactForm) {
+  contactForm.addEventListener('submit', e=>{
+    e.preventDefault();
+    const nombre = document.getElementById('c_nombre').value.trim();
+    const correo = document.getElementById('c_correo').value.trim();
+    const mensaje = document.getElementById('c_mensaje').value.trim();
+    if(!nombre || !correo || !mensaje){ alert('Completa todos los campos.'); return; }
+
+    let content = '';
+    content += 'HYMB - Mensaje de contacto\n';
+    content += '=========================\n\n';
+    content += `Nombre: ${nombre}\nCorreo: ${correo}\n\nMensaje:\n${mensaje}\n\n`;
+    content += `Fecha: ${new Date().toISOString()}\n\n`;
+    content += 'Envía este archivo como adjunto a contacto@hymb.mx si quieres que guardemos su copia.\n';
+
+    const blob = new Blob([content], {type:'text/plain;charset=utf-8'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    const safe = nombre.replace(/\s+/g,'_') || 'contacto';
+    a.download = `${safe}_mensaje.txt`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+
+    alert('Gracias. Se ha descargado un archivo .txt con tu mensaje. Adjúntalo en un correo a contacto@hymb.mx si deseas que lo recibamos por email.');
+    contactForm.reset();
+  });
+}
+
+/* -----------------------------
+   Prevent default on client form submit (no reload)
+   ----------------------------- */
+if (clientForm) clientForm.addEventListener('submit', e=> e.preventDefault());
+
+/* -----------------------------
+   Exponer funciones globales (para botones inline)
+   ----------------------------- */
+window.saveDraft = saveDraft;
+window.loadDraft = loadDraft;
+window.clearDraft = clearDraft;
+window.downloadClientTXT = downloadClientTXT;
+window.openEmailInstructions = openEmailInstructions;
+
+/* -----------------------------
+   Mode toggle (if you add a button with id="modeBtn" later)
+   ----------------------------- */
+const modeBtn = document.getElementById('modeBtn');
+if (modeBtn) {
+  if(localStorage.getItem('hymb_ui_mode') === 'light'){ document.body.classList.add('light'); modeBtn.textContent = 'Modo oscuro'; }
+  modeBtn.addEventListener('click', ()=>{
+    const isLight = document.body.classList.toggle('light');
+    localStorage.setItem('hymb_ui_mode', isLight ? 'light' : 'dark');
+    modeBtn.textContent = isLight ? 'Modo oscuro' : 'Modo claro';
+  });
+}
+</script>
+</body>
+</html>
